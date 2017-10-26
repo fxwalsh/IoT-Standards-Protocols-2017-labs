@@ -4,7 +4,7 @@ A Sigfox-based app that publishes temperature and light intensity data to PubNub
 
 
 
-##.env file
+## .env file
 An *.env* file containing the following entries is required in the root directory of the node application:
 
 ~~~bash
