@@ -1,7 +1,5 @@
 from pysense import Pysense
-
 from SI7006A20 import SI7006A20
-
 from LTR329ALS01 import LTR329ALS01
 
 import time
@@ -28,10 +26,9 @@ s.setblocking(True)
 s.setsockopt(socket.SOL_SIGFOX, socket.SO_RX, False)
 
 while True:
-    #temperature = int(round(si.temperature()*100))
     temperature = int(round(si.temperature()*100))
     light = lt.light()[0]
     print(str(temperature) + ":"+str(light))
     messageBytes=bytes((temperature & 0xff, ((temperature >> 8) & 0xff),light & 0xff, ((light >> 8) & 0xff)))
     s.send(messageBytes)
-    time.sleep(30)
+    time.sleep(60)
